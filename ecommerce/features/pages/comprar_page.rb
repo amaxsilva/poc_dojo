@@ -1,50 +1,46 @@
 class ComprarPage < SitePrism::Page
  
-    #element :click_blouse, '//a[title()="Blouse"]'
-    element :process_checkout, 'button(type="submit")'
-    element :checkout, '//span[text()="Proceed to checkout"]'    
-    element :term_of_service, '//*[@id="form"]/div/p[2]/label'    
+    element :women, :xpath, '//a[text()="Women"]'
+    element :cart, :xpath, '//*[text()="Add to cart"]'
+    element :proceed_checkout, :xpath, '//*[@id="form"]/p/button/span/i'
+    element :blouse, :xpath, '//*[@id="center_column"]/ul/li[2]'
+    element :p_checkout, :xpath, '//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a'    
+    element :term_of_service, :xpath, '//*[@id="form"]/div/p[2]/label'    
     element :pay, '.bankwire'    
-    element :btn_confirm, '//*[text()="I confirm my order"]'
+    element :btn_confirm, :xpath, '//*[text()="I confirm my order"]'
+    element :proceed, :xpath, '//*[text()="Proceed to checkout"]'
     
 
     def select_produto
 
-        sleep 1
-        find(:xpath, '//a[text()="Women"]').click
-        sleep 1
-        click_link('color_7')
+        women.click
+        blouse.click
+        
         
     end
 
     def checkout
-        
-        find(:xpath, '//*[text()="Add to cart"]').click
-        sleep 2
+        cart.click
+        #find(:xpath, '//*[text()="Add to cart"]').click
         assert_text('Product successfully added to your shopping cart')
-        click_link('Proceed to checkout')
-        sleep 1
-        # @adress_checkout = find(:xpath, '//*[text()="Shopping-cart summary"]')
-        # expect(@adress_checkout).to eql? "Shopping-cart summary" 
-        click_link('Proceed to checkout')
-        sleep 1
-        find(:xpath, '//*[text()="Proceed to checkout"]').click
-        #não esta enccontrando o elemento, por isso foi usado o find acima
+        p_checkout.click
+        assert_text('SHOPPING-CART SUMMARY')
+        proceed.click
+        assert_text('ADDRESSES')
+        proceed.click
         #click_link('Proceed to checkout')
-        #term_of_service.click
-        find(:xpath, '//*[@id="form"]/div/p[2]/label').click
-        sleep 1
-        find(:xpath, '//*[@id="form"]/p/button/span/i').click
-        pay.click
-        sleep 2
-        
+        assert_text('I agree to the terms of service and will adhere to them unconditionally.')
+        term_of_service.click
+        proceed_checkout.click
+        assert_text('PLEASE CHOOSE YOUR PAYMENT METHOD')
+        pay.click        
         
     end
 
     def successfully
 
         assert_text('You have chosen to pay by bank wire. Here is a short summary of your order:')
-        #btn_confirm.click
-         find(:xpath, '//*[text()="I confirm my order"]').click       
+        btn_confirm.click
+     
     end
 end
