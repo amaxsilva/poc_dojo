@@ -1,0 +1,9 @@
+Automatize os seguintes cenários, seguindo as definições que aprendeu nesse DOJO:
+1.
+Logar no site SWAGLABS https://www.saucedemo.com ) e efetuar uma compra
+User:standard_user
+Pass: secret_sauce
+2.
+Validar mensagem de erro para usuário invalido.
+User:locked_out_user
+Pass: secret_sauce
