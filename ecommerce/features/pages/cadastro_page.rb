@@ -13,7 +13,7 @@ class CadastroPage < SitePrism::Page
 
     def cadastro_email
 
-        email.set 'pijod70724@koldpak.com'
+        email.set 'pijod@koldpak.com'
         #btn_create.click
         find(:id, 'SubmitCreate').click
 
@@ -41,7 +41,8 @@ class CadastroPage2 < SitePrism::Page
         last_name.set 'Alves da Silva'
         value_email.text
         pass.set'SitePrism123'
-        day.select '11'
+        #day.select '11'
+        find(:xpath, '//*[@id="day"]/option[11]').select_option
         find(:xpath, '//*[@id="months"]/option[13]').select_option
         find(:xpath, '//*[@id="years"]/option[33]').select_option
         #months.select 'December'
