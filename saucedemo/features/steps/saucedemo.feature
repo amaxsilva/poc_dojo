@@ -1,6 +1,7 @@
 #language: pt
 #utf-8
 
+@efetuar_login
 Funcionalidade: Acessar o site Saucedemo
     Eu como usuário
     Quero efetuar login 
@@ -11,10 +12,10 @@ Funcionalidade: Acessar o site Saucedemo
 
     @login
     Cenario: Efetuar login
-        Quando preencho login e senha corretos
-        Então devo ser redirecionado a tela home
+        Quando digito "standard_user" e "secret_sauce"
+        Entao entro no sistema
 
     @login_incorreto
     Cenario: Efetuar login incorreto
-        Quando preencho login e senha incorretos
-        Então vejo a seguinte mensagem de error
+        Quando digito "locked_out_user" e "secret_sauce"
+        Entao me apresenta a seguinte mensagem "Epic sadface: Sorry, this user has been locked out."

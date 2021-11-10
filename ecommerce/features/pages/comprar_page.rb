@@ -14,8 +14,7 @@ class ComprarPage < SitePrism::Page
     def select_produto
 
         women.click
-        blouse.click
-        
+        blouse.click        
         
     end
 

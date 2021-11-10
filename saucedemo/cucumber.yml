@@ -1,1 +1,4 @@
-default: --no-source --color --format pretty --publish
+default: -p pretty -p homolog -p cucumber 
+pretty: --format pretty
+homolog: AMBIENTE=homolog
+cucumber: --publish-quiet 
