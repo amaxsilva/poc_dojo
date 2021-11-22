@@ -8,14 +8,19 @@ Funcionalidade: Acessar o site Saucedemo
     Para que possa efetuar uma compra
 
     Contexto:
-    Dado que estou na tela de login
+        * que estou na tela de login
 
+    Esquema do Cenário: Validar Login
+        Quando digito o usuário "<login>" e a senha "<password>"
+        Entao consigo validar o login com "<msg>"
+    
     @login
-    Cenario: Efetuar login
-        Quando digito "standard_user" e "secret_sauce"
-        Entao entro no sistema
+    Exemplos:
+    |     login     |  password  |  msg   |
+    | standard_user |secret_sauce|  home  |
+    |locked_out_user|secret_sauce|invalido|
 
     @login_incorreto
-    Cenario: Efetuar login incorreto
-        Quando digito "locked_out_user" e "secret_sauce"
-        Entao me apresenta a seguinte mensagem "Epic sadface: Sorry, this user has been locked out."
+    Exemplos:
+    |     login     |  password  |  msg   |
+    |locked_out_user|secret_sauce|invalido|
