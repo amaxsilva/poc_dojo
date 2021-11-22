@@ -18,6 +18,8 @@ brew install ruby
 RubyInstaller
 Se você está no Windows, existe um ótimo projeto para ajudá-lo a instalar o Ruby: RubyInstaller. Ele te dá tudo o que você precisa para configurar um ambiente de desenvolvimento em Ruby completo no Windows.
 
+Instalar Rubydevkit
+
 Apenas baixe, rode e está pronto!
 ```
 ### Instalando as gems
