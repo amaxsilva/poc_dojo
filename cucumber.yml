@@ -1,4 +1,5 @@
-default: -p pretty -p homolog -p cucumber 
+default: -p pretty -p homolog -p cucumber -p allure
 pretty: --format pretty
 homolog: AMBIENTE=homolog
 cucumber: --publish-quiet 
+allure: --format AllureCucumber::CucumberFormatter --out=reports_allure
