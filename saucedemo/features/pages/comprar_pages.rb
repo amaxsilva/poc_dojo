@@ -1,21 +1,23 @@
 class ComprarPage < SitePrism::Page
 
-    element :produto, '#item_4_title_link'
-    element :btn_add_cart, '#add-to-cart-sauce-labs-backpack'
+    element :produto_bike_light, '#add-to-cart-sauce-labs-bike-light'
+    element :produto_bolt_t, '#add-to-cart-sauce-labs-bolt-t-shirt'
+    element :produto_fleece_jacket, '#add-to-cart-sauce-labs-fleece-jacket'
     element :carrinho, '.shopping_cart_link'
-    element :bag, :xpath, '//*[text()="Sauce Labs Backpack"]'
     element :checkout, :xpath, '//*[@id="checkout"]'
     element :first_name, '#first-name'
     element :last_name, '#last-name'
     element :zip, '#postal-code'
     element :continue, '#continue'
     element :btn_finish, '#finish'
-    element :order, '#checkout_complete_container'    
+    element :order, '.complete-header' 
 
+    
     def selecionar_produto
 
-        produto.click
-        btn_add_cart.click
+        produto_bike_light.click
+        produto_bolt_t.click
+        produto_fleece_jacket.click
         carrinho.click
     
     end        
@@ -37,11 +39,4 @@ class ComprarPage < SitePrism::Page
     
     end
         
-     #valida valores
-#   page.has_text?('Item total: $29.99')
-#   expect(page.has_text?('Item total: $29.99')).to eq true
-#   page.has_text?('Tax: $2.40')
-#   expect(page.has_text?('Tax: $2.40')).to eq true
-#   page.has_text?('Total: $32.39')
-#   expect(page.has_text?('Total: $32.39')).to eq true
 end

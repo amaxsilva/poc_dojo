@@ -8,7 +8,7 @@ Funcionalidade: Acessar o site Saucedemo
     Para que possa efetuar uma compra
 
     Contexto:
-        * que estou na tela de login
+        Dado que estou na tela de login
 
     Esquema do Cenário: Validar Login
         Quando digito o usuário "<login>" e a senha "<password>"
@@ -18,7 +18,7 @@ Funcionalidade: Acessar o site Saucedemo
     Exemplos:
     |     login     |  password  |  msg   |
     | standard_user |secret_sauce|  home  |
-    |locked_out_user|secret_sauce|invalido|
+   #|locked_out_user|secret_sauce|invalido|
 
     @login_incorreto
     Exemplos:

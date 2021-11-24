@@ -7,13 +7,12 @@ Quando('digito o usuário {string} e a senha {string}') do |login, password|
   home.key_login.set(login)
   home.key_password.set(password)
   home.btn_login.click
-
   #valida se a pagina esta correta
-   expect(page).to have_current_path('https://www.saucedemo.com/inventory.html', url: true) 
+   #expect(page).to have_current_path('https://www.saucedemo.com/inventory.html', url: true) 
 end
 
 Entao('consigo validar o login com {string}') do |msg|
-  if status.eql?("home")
+  if msg.eql?("home")
         texto = home.login_sucesso.text
         expect(texto).to eql('PRODUCTS')
         sleep 2
