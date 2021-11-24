@@ -1,7 +1,0 @@
-#default: --no-source --color --format pretty 
-default: -p pretty -p homolog -p cucumber -p allure
-pretty: --format pretty
-homolog: AMBIENTE=homolog
-allure: --format AllureCucumber::CucumberFormatter --out=reports_allure
-#html: --format html --out=report/relatorio.html
-cucumber: --publish-quiet 
